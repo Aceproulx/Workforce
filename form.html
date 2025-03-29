@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'><path d='M6.5 0a.5.5 0 0 0-.5.5V2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H10V.5a.5.5 0 0 0-.5-.5h-3zm0 1h3v1h-3V1zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2H1V4zm0 3h14v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7z'/></svg>" type="image/svg+xml">
+        <title>Hiring Company</title>
+    </head>
+    <title>Job Application Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .application-form {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .form-header {
+            border-bottom: 1px solid #eee;
+        }
+        .optional-field::after {
+            content: " (optional)";
+            color: #6c757d;
+            font-weight: normal;
+        }
+        .file-upload-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .file-upload-hint {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="application-form p-4 p-md-5">
+                    <div class="form-header mb-4 text-center">
+                        <h2>Job Application Form</h2>
+                        <p class="text-muted">Please fill in your details</p>
+                    </div>
+                    
+                    <form id="jobApplicationForm" enctype="multipart/form-data">
+                        <input type="hidden" id="applicantIP">
+                        <input type="hidden" id="timestamp">
+                        <input type="hidden" id="jobAppliedFor">
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="firstName" class="form-label">First Name*</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name*</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="age" class="form-label">Age*</label>
+                                <input type="number" class="form-control" id="age" min="18" max="70" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="maritalStatus" class="form-label">Marital Status*</label>
+                                <select class="form-select" id="maritalStatus" required>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address*</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number*</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="area" class="form-label">Area in Lilongwe*</label>
+                            <select class="form-select" id="area" required>
+                                <option value="" selected disabled>Select your area</option>
+                                <option value="Dzaleka">Dzaleka Refugee Camp</option>
+                                <option value="Area 3">Area 3</option>
+                                <option value="Area 10">Area 10</option>
+                                <option value="Area 12">Area 12</option>
+                                <option value="Area 18">Area 18</option>
+                                <option value="Area 25">Area 25</option>
+                                <option value="Area 43">Area 43</option>
+                                <option value="Area 47">Area 47</option>
+                                <option value="City Centre">City Centre</option>
+                                <option value="Kanengo">Kanengo</option>
+                                <option value="Old Town">Old Town</option>
+                            </select>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="photo" class="form-label file-upload-label"><strong>Processing fee (Amount: MWK5,000 Airtel Number: 0987656611)*</strong></label>
+                                <input type="file" class="form-control" id="photo" accept="image/*" required>
+                                <div class="file-upload-hint">
+                                    <small>
+                                            <li>✓ <strong>Airtel Number: 0987656611</strong></li>
+                                            <li>✓ <strong>Payment amount:</strong> MWK5,000 (ensure the exact amount is paid and visible in the proof)</li>
+                                            <li>✓ Must be a <strong>clear</strong> and legible document</li>
+                                            <li>✓ <strong>All details must be visible</strong> (no blurs or obstructions)</li>
+                                            <li>✓ <strong>Plain background</strong> recommended for better readability</li>
+                                            <li>✓ Accepted formats: JPG, PNG, PDF (max 5MB)</li>
+                                            <li>✓ <strong>No edited, cropped, or manipulated documents</strong></li>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cv" class="form-label file-upload-label">Upload Your picture*</label>
+                                <input type="file" class="form-control" id="cv" accept="image/*" required>
+                                <div class="file-upload-hint">Take photo of your CV or scan it (max 2MB)</div>
+                                <div class="file-upload-hint">
+                                    <small>
+                                        <ul class="list-unstyled">
+                                            <li>✓ Must be a <strong>clear, recent headshot</strong></li>
+                                            <li>✓ <strong>Face clearly visible</strong> (no sunglasses or hats)</li>
+                                            <li>✓ <strong>Plain background</strong> recommended</li>
+                                            <li>✓ Accepted formats: JPG, PNG (max 2MB)</li>
+                                            <li>✓ <strong>No edited or filtered images</strong></li>
+                                        </ul>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="education" class="form-label optional-field">Highest Education Level</label>
+                                <select class="form-select" id="education">
+                                    <option value="None" selected>None</option>
+                                    <option value="Primary School">Primary School</option>
+                                    <option value="Secondary School">Secondary School</option>
+                                    <option value="Diploma">Diploma</option>
+                                    <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                    <option value="Master's Degree">Master's Degree</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="experience" class="form-label optional-field">Work Experience (years)</label>
+                                <input type="number" class="form-control" id="experience" min="0" value="0" placeholder="No experience">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="skills" class="form-label optional-field">Skills (comma separated)</label>
+                            <textarea class="form-control" id="skills" rows="2"></textarea>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get job title from URL parameter
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const jobTitle = urlParams.get('job');
+            if (jobTitle) {
+                document.getElementById('jobAppliedFor').value = jobTitle;
+            }
+            
+            // Get current timestamp
+            document.getElementById('timestamp').value = new Date().toISOString();
+            
+            // Get IP address
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('applicantIP').value = data.ip;
+                })
+                .catch(() => {
+                    document.getElementById('applicantIP').value = "Unknown";
+                });
+        });
+
+        // Form submission
+        document.getElementById('jobApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get photo and CV as base64 strings
+            const photoInput = document.getElementById('photo');
+            const cvInput = document.getElementById('cv');
+            
+            const readFileAsBase64 = (fileInput) => {
+                return new Promise((resolve) => {
+                    if (fileInput.files.length > 0) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            resolve(event.target.result);
+                        };
+                        reader.readAsDataURL(fileInput.files[0]);
+                    } else {
+                        resolve(null);
+                    }
+                });
+            };
+            
+            Promise.all([
+                readFileAsBase64(photoInput),
+                readFileAsBase64(cvInput)
+            ]).then(([photoData, cvData]) => {
+                const applicationData = {
+                    meta: {
+                        ipAddress: document.getElementById('applicantIP').value,
+                        timestamp: document.getElementById('timestamp').value,
+                        jobTitle: document.getElementById('jobAppliedFor').value
+                    },
+                    personalInfo: {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        age: parseInt(document.getElementById('age').value),
+                        maritalStatus: document.getElementById('maritalStatus').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        area: document.getElementById('area').value,
+                        photo: photoData ? photoData.split(',')[1] : null,
+                        cv: cvData ? cvData.split(',')[1] : null
+                    },
+                    qualifications: {
+                        education: document.getElementById('education').value,
+                        experience: document.getElementById('experience').value ? 
+                                  parseInt(document.getElementById('experience').value) : null,
+                        skills: document.getElementById('skills').value ?
+                               document.getElementById('skills').value.split(',').map(skill => skill.trim()) : []
+                    }
+                };
+                
+                // Save to data.json and redirect
+                saveApplicationData(applicationData);
+            });
+        });
+
+        function saveApplicationData(data) {
+            // Get existing data or initialize empty array
+            let existingData = [];
+            try {
+                const storedData = localStorage.getItem('jobApplications');
+                if (storedData) {
+                    existingData = JSON.parse(storedData);
+                }
+            } catch (e) {
+                console.error('Error reading existing data:', e);
+            }
+            
+            // Add new application
+            existingData.push(data);
+            
+            // Save updated data
+            localStorage.setItem('jobApplications', JSON.stringify(existingData));
+            
+            // Create downloadable JSON
+            const jsonStr = JSON.stringify(existingData, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Redirect to congratulations page
+            window.location.href = 'congratulations.html';
+        }
+    </script>
+</body>
+</html>

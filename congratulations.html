@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'><path d='M6.5 0a.5.5 0 0 0-.5.5V2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H10V.5a.5.5 0 0 0-.5-.5h-3zm0 1h3v1h-3V1zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2H1V4zm0 3h14v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7z'/></svg>" type="image/svg+xml">
+        <title>Hiring Company</title>
+    </head>
+    <title>Application Submitted Successfully</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .congrats-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .checkmark {
+            font-size: 80px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="congrats-container p-4 p-md-5 text-center">
+                    <div class="mb-4">
+                        <div class="checkmark mb-3">✓</div>
+                        <h2 class="mb-3">Application Submitted Successfully!</h2>
+                        <p class="lead">Thank you for applying with JobPortal Malawi</p>
+                    </div>
+                    
+                    <div class="mb-4 p-3 bg-light rounded">
+                        <h5 class="mb-3">What Happens Next?</h5>
+                        <ul class="text-start list-unstyled">
+                            <li class="mb-2">✓ Your application has been received</li>
+                            <li class="mb-2">✓ We'll review your information</li>
+                            <li class="mb-2">✓ Shortlisted candidates will be contacted within 7 working days</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p>Your application reference: <strong class="text-primary">MAL-<span id="referenceNumber"></span></strong></p>
+                        <p class="small text-muted">Save this number for future reference</p>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <a href="index.html" class="btn btn-primary me-md-2">
+                            Back to Home
+                        </a>
+                        <a href="index.html" class="btn btn-outline-secondary">
+                            View More Jobs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Generate a random reference number
+        document.addEventListener('DOMContentLoaded', function() {
+            const refNumber = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('referenceNumber').textContent = refNumber;
+            
+            // Store in localStorage (optional)
+            localStorage.setItem('lastApplicationRef', `MAL-${refNumber}`);
+        });
+    </script>
+</body>
+</html>
